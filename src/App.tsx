@@ -1,12 +1,15 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import NotFound from './pages/NotFound';
-import Snow from './pages/Snow';
+import SnowPage from './pages/SnowPage';
+import Venom from './components/Venom/Venom';
+import VenomPage from './pages/VenomPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Snow />,
+    // element: <SnowPage />,
+    element: <VenomPage />,
   },
   {
     path: '/*',
