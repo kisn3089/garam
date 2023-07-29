@@ -1,13 +1,13 @@
-import Venom from '@/components/Venom/Venom';
-import { OrbitControls, Stars } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
-import React from 'react';
+import Venom from "@/components/Venom/Venom";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import React from "react";
 
 const Snow = () => {
   return (
     <>
       <Canvas
-        style={{ width: '100vw', height: '100vh', backgroundColor: '#242424' }}>
+        style={{ width: "100vw", height: "100vh", backgroundColor: "#242424" }}>
         <OrbitControls
           enableZoom={true}
           enablePan={true}

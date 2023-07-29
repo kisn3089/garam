@@ -1,18 +1,18 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import './App.css';
-import NotFound from './pages/NotFound';
-import SnowPage from './pages/SnowPage';
-import Venom from './components/Venom/Venom';
-import VenomPage from './pages/VenomPage';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
+import NotFound from "./pages/NotFound";
+import SnowPage from "./pages/SnowPage";
+import VenomPage from "./pages/VenomPage";
+import SpherePage from "./pages/SpherePage";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     // element: <SnowPage />,
-    element: <VenomPage />,
+    element: <SpherePage />,
   },
   {
-    path: '/*',
+    path: "/*",
     element: <NotFound />,
   },
 ]);
