@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import "./App.css";
 import NotFound from "./pages/NotFound";
 import SnowPage from "./pages/SnowPage";
@@ -7,13 +11,16 @@ import SpherePage from "./pages/SpherePage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    // element: <SnowPage />,
+    path: "/venom",
+    element: <VenomPage />,
+  },
+  {
+    path: "/theme",
     element: <SpherePage />,
   },
   {
     path: "/*",
-    element: <NotFound />,
+    element: <Navigate to="/venom" />,
   },
 ]);
 

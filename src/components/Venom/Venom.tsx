@@ -14,8 +14,7 @@ import { Vector3 } from "three";
 const Venom = () => {
   const venomRef = useRef<any>();
   const gltf = useLoader(GLTFLoader, "/src/assets/scene.gltf");
-  const scroll = useScroll();
-  console.log(scroll);
+  // const scroll = useScroll();
 
   return (
     <VenomBox>
@@ -26,16 +25,16 @@ const Venom = () => {
         <directionalLight position={[0, 20, 0]} color="#fff" intensity={50} />
         <ambientLight intensity={2} />
         <Input />
-        <ScrollControls pages={3} damping={0.25}>
-          <primitive
-            ref={venomRef}
-            object={gltf.scene}
-            scale={3}
-            position={[0, -1, 1]}
-            castShadow
-            receiveShadow
-          />
-        </ScrollControls>
+        {/* <ScrollControls pages={3} damping={0.25}> */}
+        <primitive
+          ref={venomRef}
+          object={gltf.scene}
+          scale={3}
+          position={[0, -1, 1]}
+          castShadow
+          receiveShadow
+        />
+        {/* </ScrollControls> */}
         {/* <OrbitControls enableZoom={false} /> */}
         <CanvasEffect venomRef={venomRef} />
       </Canvas>
