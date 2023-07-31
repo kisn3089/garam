@@ -5,6 +5,7 @@ import {
   OrbitControls,
   ScrollControls,
   Text,
+  useGLTF,
   useScroll,
 } from "@react-three/drei";
 import { VenomBox } from "./styles";
@@ -13,7 +14,9 @@ import { Vector3 } from "three";
 
 const Venom = () => {
   const venomRef = useRef<any>();
-  const gltf = useLoader(GLTFLoader, "/src/assets/scene.gltf");
+  const { nodes, materials }: any = useGLTF("/model/scene.gltf");
+  // const gltf = useLoader(GLTFLoader, "/src/assets/scene.gltf");
+
   // const scroll = useScroll();
 
   return (
@@ -26,14 +29,21 @@ const Venom = () => {
         <ambientLight intensity={2} />
         <Input />
         {/* <ScrollControls pages={3} damping={0.25}> */}
-        <primitive
-          ref={venomRef}
-          object={gltf.scene}
-          scale={3}
-          position={[0, -1, 1]}
-          castShadow
-          receiveShadow
-        />
+        <group dispose={null}>
+          <group scale={0.02}>
+            <primitive object={nodes.GLTF_created_0_rootJoint} />
+            <skinnedMesh
+              geometry={nodes.Object_7.geometry}
+              material={materials["Body.001"]}
+              skeleton={nodes.Object_7.skeleton}
+            />
+            <skinnedMesh
+              geometry={nodes.Object_8.geometry}
+              material={materials["Head.001"]}
+              skeleton={nodes.Object_8.skeleton}
+            />
+          </group>
+        </group>
         {/* </ScrollControls> */}
         {/* <OrbitControls enableZoom={false} /> */}
         <CanvasEffect venomRef={venomRef} />
